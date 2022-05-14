@@ -1,0 +1,53 @@
+<!--include header-->
+<%-include('partials/_header')%>
+<!--/include header-->
+
+<!--Main site-->
+<main id="site-main" >
+  <div class="container">
+    <div class="box-nav d-flex-justify-between">
+      <a href="/add-user" class="border-shadow">
+      <span class="text-gradiant">New user <i class="fa-solid fa-user"></i> </span>
+      </a>
+    </div>
+    <!--form handaling-->
+    <form class="" action="/" method="post">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>mobile</th>
+            <th>hobby</th>
+            <th>gender</th>
+
+            <th>action</th>
+          </tr>
+
+        </thead>
+        <tbody>
+
+          <%-include('partials/_show')%>
+        </tbody>
+      </table>
+
+    </form>
+
+
+
+  </div>
+
+</main>
+
+
+
+
+<!--/Main site-->
+
+
+
+
+<!--include footer-->
+<%-include('partials/_footer')%>
+<!--/include footer-->
