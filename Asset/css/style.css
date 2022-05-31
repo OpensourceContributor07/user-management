@@ -6,7 +6,13 @@
     --border: #dee2e6;
     --border-btn: #edf2f4;
 }
+.logout{
+margin-left: 780px;
+font-size: larger;
+border-radius: 10%;
+border-width: 70px;
 
+}
 * {
     padding: 0;
     margin: 0;
@@ -232,4 +238,40 @@ table{
 }
 .error{
     color: red;
+}
+
+
+
+.login-form-group{
+
+   
+    margin-top: 20%;
+    margin-left: 35%;
+  width: 30%;
+  
+  padding: 30px;
+}
+.login-from-button{
+    padding-left: 35%;
+    padding-right: 35%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right:15px;
+    background-color: #06d6a0;
+    border-color: #06d6a0;
+    border-radius: 10px ;
+
+}
+
+.input{
+    margin-top: 20px;
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 7px ;
+}
+
+.user{
+    font-size: 25px;
 }

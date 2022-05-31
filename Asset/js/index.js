@@ -69,12 +69,12 @@ $("#update_user").submit(function(event){
     }
     $.ajax(request).done(function(response){
         alert("Data Updated Successfully!");
-        $(document).ready($(location).attr("href", "http://localhost:8080/"));
+        $(document).ready($(location).attr("href", "http://localhost:8080/user"));
     })
 
 })
 
-if(window.location.pathname == "/"){
+if(window.location.pathname == "/user"){
     $ondelete = $(".table tbody td a.delete");
     $ondelete.click(function(){
         var id = $(this).attr("data-id")

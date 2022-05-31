@@ -1,4 +1,9 @@
+require('dotenv').config()
 var Userdb = require("../model/model");
+var logindb = require("../model/mode2");
+const jwt = require('jsonwebtoken');
+const services = require("../services/render")
+const axios = require("axios");
 
 // create and save new user
 exports.create = (req,res) =>{
@@ -24,7 +29,7 @@ exports.create = (req,res) =>{
     user
     .save(user)
     .then(data =>{
-        res.redirect("/")
+        res.redirect("/user")
     })
     .catch(err =>{
         res.status(500).send({messgae:err.messgae || "Some error occured while creating a create operations "});
@@ -114,3 +119,40 @@ exports.delete = (req,res)=>{
     });
 
 }
+
+
+exports.loginget = (req,res) =>{
+    res.render("login")
+}
+
+
+exports.loginPost = (req,res) =>{
+    const { token = null } = (/token=(?<token>[^;]*)/.exec(req.headers.cookie) || {}).groups || {} // Or  better use  cookie-parser
+    logindb.findOne({user : req.body.username},function(err,foundUser){
+        if(err){
+            console.log(err.message)
+        }else{
+            if(foundUser){
+                if(foundUser.pass === req.body.password){
+                    let jwtToken = jwt.sign({
+                        email: foundUser.user
+                        
+                    },process.env.ACCESS_TOKEN_SECRET);
+                    res.cookie('token', jwtToken, { 
+                        httpOnly: true,
+                        // secure: true // - for secure, https only cookie
+                    });
+                    res.redirect("/user");
+                    
+                }
+            }else{
+                res.status(404).send({
+                    message:"User not registered pls contact at admin side!"
+                })
+            }
+        }
+    })
+    
+}
+
+
